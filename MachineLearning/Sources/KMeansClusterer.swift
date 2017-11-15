@@ -103,11 +103,11 @@ final class SmartRandomCentroidsProducer<V: VectorType> {
         return centroids
     }
 
-    private static func randomCentroidIndex(with distances: [Double]) -> Int {
-        let random: Double = .random * sum(distances)
+    private static func randomCentroidIndex(with weights: [Double]) -> Int {
+        let random: Double = .random * sum(weights)
         var totalSum: Double = 0
-        for i in 0 ..< distances.count {
-            totalSum += distances[i]
+        for i in 0 ..< weights.count {
+            totalSum += weights[i]
             if totalSum >= random {
                 return i
             }
