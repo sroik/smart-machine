@@ -50,7 +50,7 @@ class KMeansClusterer<V: VectorType> {
     private func adjustedClusters(with dataset: Dataset, centroids: [V]) -> [VectorCluster<V>] {
         var clusters = [VectorCluster<V>](repeating: .identity, count: centroids.count)
         for vector in dataset {
-            let idx = centroids.nearestIndex(to: vector) ?? 0
+            let idx = centroids.indexOfNearest(to: vector) ?? 0
             clusters[idx].vectors.append(vector)
         }
         

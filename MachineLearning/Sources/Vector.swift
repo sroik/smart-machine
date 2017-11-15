@@ -31,14 +31,14 @@ extension VectorType {
 
 extension Array where Element: Any & Spatial {
     func nearest(to vector: Element) -> Element? {
-        guard let idx = nearestIndex(to: vector) else {
+        guard let idx = indexOfNearest(to: vector) else {
             return nil
         }
 
         return self[idx]
     }
 
-    func nearestIndex(to vector: Element) -> Int? {
+    func indexOfNearest(to vector: Element) -> Int? {
         guard count > 0 else {
             return nil
         }
