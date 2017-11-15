@@ -16,7 +16,7 @@ struct VectorCluster<V: VectorType> {
 
 extension VectorCluster {
     static var identity: VectorCluster {
-        return VectorCluster(vectors: [V.identity], centroid: V.identity)
+        return VectorCluster(vectors: [], centroid: V.identity)
     }
 
     func adjustingCentroid() -> VectorCluster {

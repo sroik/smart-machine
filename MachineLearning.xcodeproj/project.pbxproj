@@ -17,6 +17,7 @@
 		ACC6B1221FBCD2B000DAE6C5 /* VectorCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6B11E1FBCD2B000DAE6C5 /* VectorCluster.swift */; };
 		ACC6B1241FBCD31400DAE6C5 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6B1231FBCD31400DAE6C5 /* Collection.swift */; };
 		ACC6B1261FBCD35200DAE6C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC6B1251FBCD35200DAE6C5 /* LaunchScreen.storyboard */; };
+		ACC6B12A1FBCD56000DAE6C5 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6B1291FBCD56000DAE6C5 /* Vector2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		ACC6B11E1FBCD2B000DAE6C5 /* VectorCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorCluster.swift; sourceTree = "<group>"; };
 		ACC6B1231FBCD31400DAE6C5 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		ACC6B1251FBCD35200DAE6C5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACC6B1291FBCD56000DAE6C5 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				ACC6B0F91FBCD0E800DAE6C5 /* AppDelegate.swift */,
 				ACC6B0FB1FBCD0E800DAE6C5 /* DemoViewController.swift */,
+				ACC6B1291FBCD56000DAE6C5 /* Vector2.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				ACC6B1211FBCD2B000DAE6C5 /* KMeansClusterer.swift in Sources */,
 				ACC6B0FC1FBCD0E800DAE6C5 /* DemoViewController.swift in Sources */,
 				ACC6B1201FBCD2B000DAE6C5 /* Vector.swift in Sources */,
+				ACC6B12A1FBCD56000DAE6C5 /* Vector2.swift in Sources */,
 				ACC6B1241FBCD31400DAE6C5 /* Collection.swift in Sources */,
 				ACC6B0FA1FBCD0E800DAE6C5 /* AppDelegate.swift in Sources */,
 			);

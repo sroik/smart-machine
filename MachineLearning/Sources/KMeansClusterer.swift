@@ -17,7 +17,7 @@ class KMeansClusterer<V: VectorType> {
 
     func fit(
         centroidsProduction: CentroidsProduction = .smartRandom,
-        convergeError: Double
+        convergeError: Double = 0.001
     ) -> Prediction {
         guard k > 0 else {
             return []
