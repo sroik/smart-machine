@@ -17,7 +17,8 @@ class KMeansClusterer<V: VectorType> {
 
     func fit(
         centroidsProduction: CentroidsProduction = .smartRandom,
-        convergeError: Double = 0.001
+        convergeError: Double = 0.001,
+        iterationsLimit: Int = 100
     ) -> Prediction {
         guard k > 0 else {
             return []
@@ -26,29 +27,34 @@ class KMeansClusterer<V: VectorType> {
         var clusters = [VectorCluster<V>]()
         var centroids = produceCentroids(from: dataset, k: k, type: centroidsProduction)
         var convergeDistance = Double.greatestFiniteMagnitude
-        var previousConvergeDistance: Double = 0
-
-        while abs(convergeDistance - previousConvergeDistance) > convergeError && abs(convergeDistance) > convergeError {
-            var adjustedClusters = [VectorCluster<V>](repeating: .identity, count: k)
-
-            for vector in dataset {
-                let idx = centroids.nearestIndex(to: vector) ?? 0
-                adjustedClusters[idx].vectors.append(vector)
-            }
-
-            clusters = adjustedClusters.map { $0.adjustingCentroid() }
+        var iteration = 0
+        
+        while abs(convergeDistance) > convergeError && iteration < iterationsLimit {
+            clusters = adjustedClusters(with: dataset, centroids: centroids)
+            
             let adjustedCentroids = clusters.map { $0.centroid }
-
-            previousConvergeDistance = convergeDistance
+            
             convergeDistance = (0 ..< k).reduce(0) { result, idx in
                 result + centroids[idx].distance(to: adjustedCentroids[idx])
             }
-
-            print("converge distance is \(convergeDistance)")
+            
             centroids = adjustedCentroids
+            iteration += 1
+            
+            print("iteration: \(iteration), converge distance: \(convergeDistance)")
         }
 
         return clusters
+    }
+    
+    private func adjustedClusters(with dataset: Dataset, centroids: [V]) -> [VectorCluster<V>] {
+        var clusters = [VectorCluster<V>](repeating: .identity, count: centroids.count)
+        for vector in dataset {
+            let idx = centroids.nearestIndex(to: vector) ?? 0
+            clusters[idx].vectors.append(vector)
+        }
+        
+        return clusters.map { $0.adjustingCentroid() }
     }
 
     private func produceCentroids(from dataset: Dataset, k: Int, type: CentroidsProduction) -> [V] {
@@ -100,6 +106,7 @@ final class SmartRandomCentroidsProducer<V: VectorType> {
             let randomIdx = randomCentroidIndex(with: distances)
             centroids.append(dataset[randomIdx])
         }
+        
         return centroids
     }
 
