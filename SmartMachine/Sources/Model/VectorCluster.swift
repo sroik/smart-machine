@@ -4,17 +4,17 @@
 
 import Foundation
 
-struct VectorCluster<V: VectorType> {
-    var vectors: [V]
-    var centroid: V
+public struct VectorCluster<V: VectorType> {
+    public var vectors: [V]
+    public var centroid: V
 
-    init(vectors: [V], centroid: V = .identity) {
+    public init(vectors: [V], centroid: V = .identity) {
         self.vectors = vectors
         self.centroid = centroid
     }
 }
 
-extension VectorCluster {
+public extension VectorCluster {
     static var identity: VectorCluster {
         return VectorCluster(vectors: [], centroid: V.identity)
     }

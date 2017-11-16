@@ -4,18 +4,18 @@
 
 import Foundation
 
-class KMeansClusterer<V: VectorType> {
+public class KMeansClusterer<V: VectorType> {
 
-    let dataset: Dataset
-    let k: Int
+    public let dataset: Dataset
+    public let k: Int
 
-    init(dataset: Dataset, k: Int) {
+    public init(dataset: Dataset, k: Int) {
         assert((1 ..< dataset.count).contains(k), "incorrect k number")
         self.dataset = dataset
         self.k = min(k, dataset.count)
     }
 
-    func fit(
+    public func fit(
         centroidsProduction: CentroidsProduction = .smartRandom,
         convergeError: Double = 0.001,
         iterationsLimit: Int = 100
@@ -28,32 +28,32 @@ class KMeansClusterer<V: VectorType> {
         var centroids = produceCentroids(from: dataset, k: k, type: centroidsProduction)
         var convergeDistance = Double.greatestFiniteMagnitude
         var iteration = 0
-        
+
         while abs(convergeDistance) > convergeError && iteration < iterationsLimit {
             clusters = adjustedClusters(with: dataset, centroids: centroids)
-            
+
             let adjustedCentroids = clusters.map { $0.centroid }
-            
+
             convergeDistance = (0 ..< k).reduce(0) { result, idx in
                 result + centroids[idx].distance(to: adjustedCentroids[idx])
             }
-            
+
             centroids = adjustedCentroids
             iteration += 1
-            
+
             print("iteration: \(iteration), converge distance: \(convergeDistance)")
         }
 
         return clusters
     }
-    
+
     private func adjustedClusters(with dataset: Dataset, centroids: [V]) -> [VectorCluster<V>] {
         var clusters = [VectorCluster<V>](repeating: .identity, count: centroids.count)
         for vector in dataset {
             let idx = centroids.indexOfNearest(to: vector) ?? 0
             clusters[idx].vectors.append(vector)
         }
-        
+
         return clusters.map { $0.adjustingCentroid() }
     }
 
@@ -72,7 +72,7 @@ class KMeansClusterer<V: VectorType> {
     }
 }
 
-extension KMeansClusterer {
+public extension KMeansClusterer {
     typealias Dataset = [V]
     typealias Prediction = [VectorCluster<V>]
 
@@ -84,29 +84,29 @@ extension KMeansClusterer {
     }
 }
 
-final class GradualCentroidsProducer<V: VectorType> {
-    static func produceCentroids(with dataset: [V], k: Int) -> [V] {
+public final class GradualCentroidsProducer<V: VectorType> {
+    public static func produceCentroids(with dataset: [V], k: Int) -> [V] {
         let stride = dataset.count / k
         let result = (0 ..< k).map { dataset[$0 * stride + stride / 2] }
         return result
     }
 }
 
-final class FastRandomCentroidsProducer<V: VectorType> {
-    static func produceCentroids(with dataset: [V], k: Int) -> [V] {
+public final class FastRandomCentroidsProducer<V: VectorType> {
+    public static func produceCentroids(with dataset: [V], k: Int) -> [V] {
         return Array(dataset.shuffled().prefix(k))
     }
 }
 
-final class SmartRandomCentroidsProducer<V: VectorType> {
-    static func produceCentroids(with dataset: [V], k: Int) -> [V] {
+public final class SmartRandomCentroidsProducer<V: VectorType> {
+    public static func produceCentroids(with dataset: [V], k: Int) -> [V] {
         var centroids = [dataset.random() ?? dataset[0]]
         while centroids.count < k {
             let distances = dataset.map { pow(centroids.nearest(to: $0)?.distance(to: $0) ?? 0, 2) }
             let randomIdx = randomCentroidIndex(with: distances)
             centroids.append(dataset[randomIdx])
         }
-        
+
         return centroids
     }
 
