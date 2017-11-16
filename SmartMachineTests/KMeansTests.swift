@@ -14,8 +14,8 @@ class SmartMachineTests: XCTestCase {
             Point(9, 9), Point(9, 10), Point(10, 9), Point(10, 10)
         ]
 
-        let clusterer = KMeansClusterer(dataset: points, k: 3)
-        let clusters = clusterer.fit()
+        let clusterer = KMeansClusterer(dataset: points)
+        let clusters = clusterer.fit(k: 3)
         let centroids = clusters.map { $0.centroid }
 
         XCTAssertEqual(centroids.count, 3)

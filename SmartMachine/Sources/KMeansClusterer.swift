@@ -7,20 +7,21 @@ import Foundation
 public class KMeansClusterer<V: VectorType> {
 
     public let dataset: Dataset
-    public let k: Int
 
-    public init(dataset: Dataset, k: Int) {
-        assert((1 ..< dataset.count).contains(k), "incorrect k number")
+    public init(dataset: Dataset) {
+        assert(dataset.count > 0, "corrupted dataset")
         self.dataset = dataset
-        self.k = min(k, dataset.count)
     }
 
     public func fit(
+        k: Int,
         centroidsProduction: CentroidsProduction = .smartRandom,
         convergeError: Double = 0.001,
         iterationsLimit: Int = 100
     ) -> Prediction {
-        guard k > 0 else {
+
+        guard (1 ..< dataset.count).contains(k) else {
+            assertionFailure("incorrect k number")
             return []
         }
 
@@ -31,7 +32,6 @@ public class KMeansClusterer<V: VectorType> {
 
         while abs(convergeDistance) > convergeError && iteration < iterationsLimit {
             clusters = adjustedClusters(with: dataset, centroids: centroids)
-
             let adjustedCentroids = clusters.map { $0.centroid }
 
             convergeDistance = (0 ..< k).reduce(0) { result, idx in
