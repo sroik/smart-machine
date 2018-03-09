@@ -21,15 +21,15 @@ struct Point {
 }
 
 extension Point: VectorType {
-    static func -(lhs: Point, rhs: Point) -> Point {
+    static func - (lhs: Point, rhs: Point) -> Point {
         return Point(lhs.x - rhs.x, lhs.y - rhs.y)
     }
 
-    static func +(lhs: Point, rhs: Point) -> Point {
+    static func + (lhs: Point, rhs: Point) -> Point {
         return Point(lhs.x + rhs.x, lhs.y + rhs.y)
     }
 
-    static func *(lhs: Point, rhs: Double) -> Point {
+    static func * (lhs: Point, rhs: Double) -> Point {
         return Point(lhs.x * rhs, lhs.y * rhs)
     }
 
@@ -45,7 +45,7 @@ extension Point: VectorType {
         return sqrt(pow(x - to.x, 2) + pow(y - to.y, 2))
     }
 
-    static func ==(lhs: Point, rhs: Point) -> Bool {
+    static func == (lhs: Point, rhs: Point) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y
     }
 }

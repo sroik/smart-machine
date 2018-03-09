@@ -16,7 +16,6 @@
 		AC66B06B1FBD8F1500998B37 /* VectorCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0661FBD8F1500998B37 /* VectorCluster.swift */; };
 		AC66B06C1FBD8F1500998B37 /* KMeansClusterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */; };
 		AC66B0751FBD90B300998B37 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0731FBD90B300998B37 /* Point.swift */; };
-		AC66B07A1FBD941200998B37 /* format_code.rb in Resources */ = {isa = PBXBuildFile; fileRef = AC66B0791FBD941200998B37 /* format_code.rb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,6 @@
 		AC66B0661FBD8F1500998B37 /* VectorCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorCluster.swift; sourceTree = "<group>"; };
 		AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMeansClusterer.swift; sourceTree = "<group>"; };
 		AC66B0731FBD90B300998B37 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		AC66B0791FBD941200998B37 /* format_code.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = format_code.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 			children = (
 				AC2411FF1FBD8E8700A356A5 /* SmartMachine */,
 				AC24120A1FBD8E8800A356A5 /* SmartMachineTests */,
-				AC66B0781FBD941200998B37 /* Scripts */,
 				AC2411FE1FBD8E8700A356A5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -155,14 +152,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		AC66B0781FBD941200998B37 /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				AC66B0791FBD941200998B37 /* format_code.rb */,
-			);
-			path = Scripts;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -182,7 +171,6 @@
 			buildConfigurationList = AC2412111FBD8E8800A356A5 /* Build configuration list for PBXNativeTarget "SmartMachine" */;
 			buildPhases = (
 				AC66B07F1FBD948F00998B37 /* Format Code */,
-				AC66B07E1FBD947500998B37 /* Lint */,
 				AC2411F81FBD8E8700A356A5 /* Sources */,
 				AC2411F91FBD8E8700A356A5 /* Frameworks */,
 				AC2411FA1FBD8E8700A356A5 /* Headers */,
@@ -265,27 +253,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC66B07A1FBD941200998B37 /* format_code.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AC66B07E1FBD947500998B37 /* Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Lint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint autocorrect\n    swiftlint\nelse\n    echo \"warning: swiftlint not installed, run 'brew install swiftlint'\"\nfi";
-		};
 		AC66B07F1FBD948F00998B37 /* Format Code */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,7 +271,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ./Scripts/format_code.rb;
+			shellScript = "eval \"$(rbenv init -)\"\nbundler exec code-formatter format\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

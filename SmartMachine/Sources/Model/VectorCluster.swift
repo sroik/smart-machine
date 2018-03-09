@@ -20,7 +20,7 @@ public extension VectorCluster {
     }
 
     func adjustingCentroid() -> VectorCluster {
-        let centroid = vectors.reduce(.identity) { $0 + $1 / Double(vectors.count) }
+        let centroid = vectors.reduce(.identity) { $0 + $1 } / Double(vectors.count)
         return VectorCluster(vectors: vectors, centroid: centroid)
     }
 
