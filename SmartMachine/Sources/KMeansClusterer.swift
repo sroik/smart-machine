@@ -3,8 +3,9 @@
 //
 
 import Foundation
+import Surge
 
-public class KMeansClusterer<V: VectorType> {
+public class KMeansClusterer<V: Vector> {
 
     public let dataset: Dataset
 
@@ -48,7 +49,9 @@ public class KMeansClusterer<V: VectorType> {
     }
 
     private func adjustedClusters(with dataset: Dataset, centroids: [V]) -> [VectorCluster<V>] {
-        var clusters = [VectorCluster<V>](repeating: .identity, count: centroids.count)
+        let dimension = dataset[0].dimension
+        let identity = VectorCluster<V>.identity(dimension: dimension)
+        var clusters = [VectorCluster<V>](repeating: identity, count: centroids.count)
         for vector in dataset {
             let idx = centroids.indexOfNearest(to: vector) ?? 0
             clusters[idx].vectors.append(vector)
@@ -84,7 +87,7 @@ public extension KMeansClusterer {
     }
 }
 
-public final class GradualCentroidsProducer<V: VectorType> {
+public final class GradualCentroidsProducer<V: Vector> {
     public static func produceCentroids(with dataset: [V], k: Int) -> [V] {
         let stride = dataset.count / k
         let result = (0 ..< k).map { dataset[$0 * stride + stride / 2] }
@@ -92,13 +95,13 @@ public final class GradualCentroidsProducer<V: VectorType> {
     }
 }
 
-public final class FastRandomCentroidsProducer<V: VectorType> {
+public final class FastRandomCentroidsProducer<V: Vector> {
     public static func produceCentroids(with dataset: [V], k: Int) -> [V] {
         return Array(dataset.shuffled().prefix(k))
     }
 }
 
-public final class SmartRandomCentroidsProducer<V: VectorType> {
+public final class SmartRandomCentroidsProducer<V: Vector> {
     public static func produceCentroids(with dataset: [V], k: Int) -> [V] {
         var centroids = [dataset.random() ?? dataset[0]]
         while centroids.count < k {

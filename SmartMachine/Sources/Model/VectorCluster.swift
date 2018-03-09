@@ -3,24 +3,35 @@
 //
 
 import Foundation
+import Surge
 
-public struct VectorCluster<V: VectorType> {
+public struct VectorCluster<V: Vector> {
     public var vectors: [V]
     public var centroid: V
 
-    public init(vectors: [V], centroid: V = .identity) {
+    public var dimension: Vector.Dimension {
+        return centroid.dimension
+    }
+
+    public init(vectors: [V], centroid: V) {
         self.vectors = vectors
         self.centroid = centroid
+    }
+
+    public init(vectors: [V], dimension: Vector.Dimension) {
+        self.vectors = vectors
+        self.centroid = V.identity(dimension: dimension)
     }
 }
 
 public extension VectorCluster {
-    static var identity: VectorCluster {
-        return VectorCluster(vectors: [], centroid: V.identity)
+    static func identity(dimension: Vector.Dimension) -> VectorCluster {
+        return VectorCluster(vectors: [], dimension: dimension)
     }
 
     func adjustingCentroid() -> VectorCluster {
-        let centroid = vectors.reduce(.identity) { $0 + $1 } / Double(vectors.count)
+        let sum = vectors.reduce(V.identity(dimension: dimension)) { $0 + $1 }
+        let centroid = sum / Double(vectors.count)
         return VectorCluster(vectors: vectors, centroid: centroid)
     }
 

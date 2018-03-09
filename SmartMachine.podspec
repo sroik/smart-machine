@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'SmartMachine'
   s.module_name = 'SmartMachine'
-  s.version = '0.1.1'
+  s.version = '0.1.2'
   s.summary = ' Smart Machine'
   s.description = 'Machine Learning Lib'
   s.homepage = 'https://github.com/sroik/smart-machine'
@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
   s.source_files = 'SmartMachine/Sources/**/*.{h,m,swift}'
   s.frameworks = 'UIKit'
+  s.dependency 'Surge'
 end
