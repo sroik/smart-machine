@@ -6,6 +6,8 @@ import Foundation
 import Surge
 
 public final class NeuralNetwork {
+    public var layers: [Layer]
+
     public init(layers: [Layer] = []) {
         self.layers = layers
     }
@@ -26,14 +28,10 @@ public final class NeuralNetwork {
             )
         }
     }
-    
-    public func predict(_ input: Matrix<Double>) -> Matrix<Double> {
-        var output = input
-        layers.forEach { layer in
-            output = layer.forward(output)
-        }
-        return output
-    }
 
-    private var layers: [Layer]
+    public func predict(_ input: Matrix<Double>) -> Matrix<Double> {
+        return layers.reduce(input) { output, layer in
+            layer.forward(output)
+        }
+    }
 }

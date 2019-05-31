@@ -22,6 +22,7 @@
 		ACB7575822A153CC0011AA26 /* GeneInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575722A153CC0011AA26 /* GeneInitializer.swift */; };
 		ACB7575A22A1598C0011AA26 /* Matrix+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */; };
 		ACB7575C22A15F8F0011AA26 /* NeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575B22A15F8F0011AA26 /* NeuralNetwork.swift */; };
+		ACB7575E22A162360011AA26 /* NeuralNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575D22A162360011AA26 /* NeuralNetworkTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		ACB7575722A153CC0011AA26 /* GeneInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneInitializer.swift; sourceTree = "<group>"; };
 		ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Matrix+Extensions.swift"; sourceTree = "<group>"; };
 		ACB7575B22A15F8F0011AA26 /* NeuralNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetwork.swift; sourceTree = "<group>"; };
+		ACB7575D22A162360011AA26 /* NeuralNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetworkTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				AC66B0761FBD90B700998B37 /* Supporting Files */,
 				AC66B0771FBD90C100998B37 /* Utils */,
 				AC24120B1FBD8E8800A356A5 /* KMeansTests.swift */,
+				ACB7575D22A162360011AA26 /* NeuralNetworkTests.swift */,
 			);
 			path = SmartMachineTests;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB7575E22A162360011AA26 /* NeuralNetworkTests.swift in Sources */,
 				AC24120C1FBD8E8800A356A5 /* KMeansTests.swift in Sources */,
 				AC66B0751FBD90B300998B37 /* Point.swift in Sources */,
 			);

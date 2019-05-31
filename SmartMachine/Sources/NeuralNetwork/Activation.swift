@@ -9,16 +9,27 @@ public enum Activation {
     case none
     case relu
     case sigmoid
+    case tanh
 
     public func forward(_ matrix: Matrix<Double>) -> Matrix<Double> {
         switch self {
         case .none:
-            let e = matrix.map { exp($0) }
-            return e / (e.repeating(value: 1) + e)
-        case .relu:
-            return matrix.map { max(0, $0) }
-        case .sigmoid:
             return matrix
+        case .relu, .sigmoid, .tanh:
+            return matrix.map(forward)
+        }
+    }
+
+    public func forward(_ value: Double) -> Double {
+        switch self {
+        case .none:
+            return value
+        case .relu:
+            return max(0, value)
+        case .sigmoid:
+            return 1 / (1 - exp(-value))
+        case .tanh:
+            return Foundation.tanh(value)
         }
     }
 }
