@@ -12,7 +12,6 @@
 		AC2412071FBD8E8800A356A5 /* SmartMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2411FD1FBD8E8700A356A5 /* SmartMachine.framework */; };
 		AC24120C1FBD8E8800A356A5 /* KMeansTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24120B1FBD8E8800A356A5 /* KMeansTests.swift */; };
 		AC24120E1FBD8E8800A356A5 /* SmartMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = AC2412001FBD8E8700A356A5 /* SmartMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC66B0681FBD8F1500998B37 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0631FBD8F1500998B37 /* Double+Extensions.swift */; };
 		AC66B0691FBD8F1500998B37 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */; };
 		AC66B06A1FBD8F1500998B37 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0651FBD8F1500998B37 /* Vector.swift */; };
 		AC66B06B1FBD8F1500998B37 /* VectorCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0661FBD8F1500998B37 /* VectorCluster.swift */; };
@@ -43,7 +42,6 @@
 		AC2412061FBD8E8800A356A5 /* SmartMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC24120B1FBD8E8800A356A5 /* KMeansTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeansTests.swift; sourceTree = "<group>"; };
 		AC24120D1FBD8E8800A356A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC66B0631FBD8F1500998B37 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		AC66B0651FBD8F1500998B37 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		AC66B0661FBD8F1500998B37 /* VectorCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorCluster.swift; sourceTree = "<group>"; };
@@ -120,12 +118,36 @@
 			path = SmartMachineTests;
 			sourceTree = "<group>";
 		};
+		AC2B130A22A14BAB00DEE495 /* KMeans */ = {
+			isa = PBXGroup;
+			children = (
+				AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */,
+			);
+			path = KMeans;
+			sourceTree = "<group>";
+		};
+		AC2B130B22A14BCF00DEE495 /* NeuralNetwork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NeuralNetwork;
+			sourceTree = "<group>";
+		};
+		AC2B130C22A14C1000DEE495 /* Vector */ = {
+			isa = PBXGroup;
+			children = (
+				AC66B0651FBD8F1500998B37 /* Vector.swift */,
+				AC66B0661FBD8F1500998B37 /* VectorCluster.swift */,
+			);
+			path = Vector;
+			sourceTree = "<group>";
+		};
 		AC66B0621FBD8F1500998B37 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				AC66B0711FBD908B00998B37 /* Model */,
 				AC66B0701FBD908600998B37 /* Utils */,
-				AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */,
+				AC2B130A22A14BAB00DEE495 /* KMeans */,
+				AC2B130B22A14BCF00DEE495 /* NeuralNetwork */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -142,19 +164,10 @@
 		AC66B0701FBD908600998B37 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AC66B0631FBD8F1500998B37 /* Double+Extensions.swift */,
+				AC2B130C22A14C1000DEE495 /* Vector */,
 				AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		AC66B0711FBD908B00998B37 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AC66B0651FBD8F1500998B37 /* Vector.swift */,
-				AC66B0661FBD8F1500998B37 /* VectorCluster.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		AC66B0761FBD90B700998B37 /* Supporting Files */ = {
@@ -370,7 +383,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC66B0681FBD8F1500998B37 /* Double+Extensions.swift in Sources */,
 				AC66B06C1FBD8F1500998B37 /* KMeansClusterer.swift in Sources */,
 				AC66B06A1FBD8F1500998B37 /* Vector.swift in Sources */,
 				AC66B0691FBD8F1500998B37 /* Collection+Extensions.swift in Sources */,
