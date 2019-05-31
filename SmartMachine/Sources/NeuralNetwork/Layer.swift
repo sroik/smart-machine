@@ -10,7 +10,7 @@ public struct Layer {
     public let activation: Activation
 
     public var weights: Matrix<Double> = Matrix()
-    public var bias: Matrix<Double> = Matrix()
+    public var biases: Matrix<Double> = Matrix()
 
     public init(size: Int, activation: Activation = .none) {
         self.size = size
@@ -23,7 +23,7 @@ public struct Layer {
         biasInitializer: GeneInitializer
     ) {
         weights = Matrix(rows: size, columns: previous.size, initializer: weightInitializer)
-        bias = Matrix(rows: size, columns: previous.size, initializer: biasInitializer)
+        biases = Matrix(rows: size, columns: previous.size, initializer: biasInitializer)
     }
 
     public func forward(_ matrix: Matrix<Double>) -> Matrix<Double> {
@@ -31,7 +31,7 @@ public struct Layer {
             return matrix
         }
 
-        let weighted = weights * matrix + bias
+        let weighted = weights * matrix + biases
         let activated = activation.forward(weighted)
         return activated
     }

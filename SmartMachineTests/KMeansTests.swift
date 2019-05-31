@@ -2,7 +2,7 @@
 //  Copyright © 2019 sroik. All rights reserved.
 //
 
-@testable import SmartMachine
+import SmartMachine
 import XCTest
 
 class SmartMachineTests: XCTestCase {

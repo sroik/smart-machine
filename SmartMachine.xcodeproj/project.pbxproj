@@ -21,6 +21,7 @@
 		ACB7575622A150360011AA26 /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575522A150360011AA26 /* Activation.swift */; };
 		ACB7575822A153CC0011AA26 /* GeneInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575722A153CC0011AA26 /* GeneInitializer.swift */; };
 		ACB7575A22A1598C0011AA26 /* Matrix+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */; };
+		ACB7575C22A15F8F0011AA26 /* NeuralNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575B22A15F8F0011AA26 /* NeuralNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		ACB7575522A150360011AA26 /* Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
 		ACB7575722A153CC0011AA26 /* GeneInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneInitializer.swift; sourceTree = "<group>"; };
 		ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Matrix+Extensions.swift"; sourceTree = "<group>"; };
+		ACB7575B22A15F8F0011AA26 /* NeuralNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +139,10 @@
 		AC2B130B22A14BCF00DEE495 /* NeuralNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				ACB7575322A14E040011AA26 /* Layer.swift */,
 				ACB7575522A150360011AA26 /* Activation.swift */,
 				ACB7575722A153CC0011AA26 /* GeneInitializer.swift */,
+				ACB7575322A14E040011AA26 /* Layer.swift */,
+				ACB7575B22A15F8F0011AA26 /* NeuralNetwork.swift */,
 			);
 			path = NeuralNetwork;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				ACB7575A22A1598C0011AA26 /* Matrix+Extensions.swift in Sources */,
 				ACB7575622A150360011AA26 /* Activation.swift in Sources */,
 				AC66B06A1FBD8F1500998B37 /* Vector.swift in Sources */,
+				ACB7575C22A15F8F0011AA26 /* NeuralNetwork.swift in Sources */,
 				ACB7575422A14E040011AA26 /* Layer.swift in Sources */,
 				AC66B0691FBD8F1500998B37 /* Collection+Extensions.swift in Sources */,
 				AC66B06B1FBD8F1500998B37 /* VectorCluster.swift in Sources */,
