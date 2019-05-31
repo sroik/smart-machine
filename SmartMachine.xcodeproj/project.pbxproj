@@ -17,6 +17,10 @@
 		AC66B06B1FBD8F1500998B37 /* VectorCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0661FBD8F1500998B37 /* VectorCluster.swift */; };
 		AC66B06C1FBD8F1500998B37 /* KMeansClusterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */; };
 		AC66B0751FBD90B300998B37 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0731FBD90B300998B37 /* Point.swift */; };
+		ACB7575422A14E040011AA26 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575322A14E040011AA26 /* Layer.swift */; };
+		ACB7575622A150360011AA26 /* Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575522A150360011AA26 /* Activation.swift */; };
+		ACB7575822A153CC0011AA26 /* GeneInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575722A153CC0011AA26 /* GeneInitializer.swift */; };
+		ACB7575A22A1598C0011AA26 /* Matrix+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		AC66B0661FBD8F1500998B37 /* VectorCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorCluster.swift; sourceTree = "<group>"; };
 		AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMeansClusterer.swift; sourceTree = "<group>"; };
 		AC66B0731FBD90B300998B37 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		ACB7575322A14E040011AA26 /* Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
+		ACB7575522A150360011AA26 /* Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activation.swift; sourceTree = "<group>"; };
+		ACB7575722A153CC0011AA26 /* GeneInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneInitializer.swift; sourceTree = "<group>"; };
+		ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Matrix+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,9 @@
 		AC2B130B22A14BCF00DEE495 /* NeuralNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				ACB7575322A14E040011AA26 /* Layer.swift */,
+				ACB7575522A150360011AA26 /* Activation.swift */,
+				ACB7575722A153CC0011AA26 /* GeneInitializer.swift */,
 			);
 			path = NeuralNetwork;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 			children = (
 				AC2B130C22A14C1000DEE495 /* Vector */,
 				AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */,
+				ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -384,7 +396,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC66B06C1FBD8F1500998B37 /* KMeansClusterer.swift in Sources */,
+				ACB7575822A153CC0011AA26 /* GeneInitializer.swift in Sources */,
+				ACB7575A22A1598C0011AA26 /* Matrix+Extensions.swift in Sources */,
+				ACB7575622A150360011AA26 /* Activation.swift in Sources */,
 				AC66B06A1FBD8F1500998B37 /* Vector.swift in Sources */,
+				ACB7575422A14E040011AA26 /* Layer.swift in Sources */,
 				AC66B0691FBD8F1500998B37 /* Collection+Extensions.swift in Sources */,
 				AC66B06B1FBD8F1500998B37 /* VectorCluster.swift in Sources */,
 			);
