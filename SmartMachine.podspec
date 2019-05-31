@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'SmartMachine'
   s.module_name = 'SmartMachine'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.summary = ' Smart Machine'
   s.description = 'Machine Learning Lib'
   s.homepage = 'https://github.com/sroik/smart-machine'
