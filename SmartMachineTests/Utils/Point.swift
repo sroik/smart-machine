@@ -1,11 +1,11 @@
 //
-//  Copyright © 2017 sroik. All rights reserved.
+//  Copyright © 2019 sroik. All rights reserved.
 //
 
 import Foundation
 import SmartMachine
 
-struct Point {
+struct Point: Hashable {
     let x: Double
     let y: Double
 
@@ -28,15 +28,5 @@ extension Point: Vector {
     init(raw: Vector.Raw) {
         self.x = raw[0]
         self.y = raw[1]
-    }
-}
-
-extension Point: Hashable {
-    var hashValue: Int {
-        return x.hashValue ^ y.hashValue &* 16_777_619
-    }
-
-    static func == (lhs: Point, rhs: Point) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y
     }
 }

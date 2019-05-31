@@ -1,12 +1,10 @@
 //
-//  Copyright © 2017 sroik. All rights reserved.
+//  Copyright © 2019 sroik. All rights reserved.
 //
 
-import Foundation
 import Surge
 
 public class KMeansClusterer<V: Vector> {
-
     public let dataset: Dataset
 
     public init(dataset: Dataset) {
@@ -20,7 +18,6 @@ public class KMeansClusterer<V: Vector> {
         convergeError: Double = 0.001,
         iterationsLimit: Int = 100
     ) -> Prediction {
-
         guard (1 ..< dataset.count).contains(k) else {
             assertionFailure("incorrect k number")
             return []
@@ -31,7 +28,7 @@ public class KMeansClusterer<V: Vector> {
         var convergeDistance = Double.greatestFiniteMagnitude
         var iteration = 0
 
-        while abs(convergeDistance) > convergeError && iteration < iterationsLimit {
+        while abs(convergeDistance) > convergeError, iteration < iterationsLimit {
             clusters = adjustedClusters(with: dataset, centroids: centroids)
             let adjustedCentroids = clusters.map { $0.centroid }
 
@@ -103,7 +100,7 @@ public final class FastRandomCentroidsProducer<V: Vector> {
 
 public final class SmartRandomCentroidsProducer<V: Vector> {
     public static func produceCentroids(with dataset: [V], k: Int) -> [V] {
-        var centroids = [dataset.random() ?? dataset[0]]
+        var centroids = [dataset.randomElement() ?? dataset[0]]
         while centroids.count < k {
             let distances = dataset.map { pow(centroids.nearest(to: $0)?.distance(to: $0) ?? 0, 2) }
             let randomIdx = randomCentroidIndex(with: distances)

@@ -12,8 +12,8 @@
 		AC2412071FBD8E8800A356A5 /* SmartMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2411FD1FBD8E8700A356A5 /* SmartMachine.framework */; };
 		AC24120C1FBD8E8800A356A5 /* KMeansTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24120B1FBD8E8800A356A5 /* KMeansTests.swift */; };
 		AC24120E1FBD8E8800A356A5 /* SmartMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = AC2412001FBD8E8700A356A5 /* SmartMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC66B0681FBD8F1500998B37 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0631FBD8F1500998B37 /* Number.swift */; };
-		AC66B0691FBD8F1500998B37 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0641FBD8F1500998B37 /* Collection.swift */; };
+		AC66B0681FBD8F1500998B37 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0631FBD8F1500998B37 /* Double+Extensions.swift */; };
+		AC66B0691FBD8F1500998B37 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */; };
 		AC66B06A1FBD8F1500998B37 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0651FBD8F1500998B37 /* Vector.swift */; };
 		AC66B06B1FBD8F1500998B37 /* VectorCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0661FBD8F1500998B37 /* VectorCluster.swift */; };
 		AC66B06C1FBD8F1500998B37 /* KMeansClusterer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */; };
@@ -43,8 +43,8 @@
 		AC2412061FBD8E8800A356A5 /* SmartMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC24120B1FBD8E8800A356A5 /* KMeansTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMeansTests.swift; sourceTree = "<group>"; };
 		AC24120D1FBD8E8800A356A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC66B0631FBD8F1500998B37 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
-		AC66B0641FBD8F1500998B37 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		AC66B0631FBD8F1500998B37 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		AC66B0651FBD8F1500998B37 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		AC66B0661FBD8F1500998B37 /* VectorCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorCluster.swift; sourceTree = "<group>"; };
 		AC66B0671FBD8F1500998B37 /* KMeansClusterer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMeansClusterer.swift; sourceTree = "<group>"; };
@@ -142,8 +142,8 @@
 		AC66B0701FBD908600998B37 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AC66B0631FBD8F1500998B37 /* Number.swift */,
-				AC66B0641FBD8F1500998B37 /* Collection.swift */,
+				AC66B0631FBD8F1500998B37 /* Double+Extensions.swift */,
+				AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -208,7 +208,6 @@
 				AC2411F91FBD8E8700A356A5 /* Frameworks */,
 				AC2411FA1FBD8E8700A356A5 /* Headers */,
 				AC2411FB1FBD8E8700A356A5 /* Resources */,
-				F2CC3BB14F280B8CAAD34891 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,7 +227,6 @@
 				AC2412031FBD8E8800A356A5 /* Frameworks */,
 				AC2412041FBD8E8800A356A5 /* Resources */,
 				E56C8F46CCBCDD7B6CE33048 /* [CP] Embed Pods Frameworks */,
-				678E1455BA1D4EBD38B771AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,6 +250,7 @@
 				TargetAttributes = {
 					AC2411FC1FBD8E8700A356A5 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
 					AC2412051FBD8E8800A356A5 = {
@@ -314,21 +313,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		678E1455BA1D4EBD38B771AE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartMachineTests/Pods-SmartMachineTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		920929898747EB7CC26E3942 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,7 +351,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SmartMachineTests/Pods-SmartMachineTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SmartMachineTests/Pods-SmartMachineTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Surge/Surge.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -376,22 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartMachineTests/Pods-SmartMachineTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F2CC3BB14F280B8CAAD34891 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartMachine/Pods-SmartMachine-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartMachineTests/Pods-SmartMachineTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -401,10 +370,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC66B0681FBD8F1500998B37 /* Number.swift in Sources */,
+				AC66B0681FBD8F1500998B37 /* Double+Extensions.swift in Sources */,
 				AC66B06C1FBD8F1500998B37 /* KMeansClusterer.swift in Sources */,
 				AC66B06A1FBD8F1500998B37 /* Vector.swift in Sources */,
-				AC66B0691FBD8F1500998B37 /* Collection.swift in Sources */,
+				AC66B0691FBD8F1500998B37 /* Collection+Extensions.swift in Sources */,
 				AC66B06B1FBD8F1500998B37 /* VectorCluster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +453,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -536,6 +506,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -561,7 +532,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -585,7 +556,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -602,7 +573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sroik.ml.SmartMachineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -619,7 +590,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sroik.ml.SmartMachineTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,5 +1,5 @@
 //
-//  Copyright © 2017 sroik. All rights reserved.
+//  Copyright © 2019 sroik. All rights reserved.
 //
 
 import Foundation
@@ -9,14 +9,14 @@ public protocol Spatial {
     func distance(to: Self) -> Double
 }
 
-public protocol Vector: Spatial {
+public protocol Vector: Spatial, Codable, Hashable {
     typealias Raw = [Double]
     var raw: Raw { get }
     init(raw: Raw)
 }
 
 public extension Vector {
-    public typealias Dimension = Int
+    typealias Dimension = Int
 
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.raw == rhs.raw

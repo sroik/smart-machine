@@ -1,12 +1,11 @@
 //
-//  Copyright © 2017 sroik. All rights reserved.
+//  Copyright © 2019 sroik. All rights reserved.
 //
 
-import XCTest
 @testable import SmartMachine
+import XCTest
 
 class SmartMachineTests: XCTestCase {
-
     func testSimple2DClustering() {
         let points = [
             Point(0.5, 0.5), Point(1, 1), Point(1, 1.5), Point(1.5, 1),

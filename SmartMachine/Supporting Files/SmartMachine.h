@@ -1,5 +1,5 @@
 //
-//  Copyright © 2017 sroik. All rights reserved.
+//  Copyright © 2019 sroik. All rights reserved.
 //
 
 @import UIKit;
