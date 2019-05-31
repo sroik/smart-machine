@@ -7,6 +7,14 @@ import Surge
 public extension Matrix {
     typealias EnumerationBlock = (_ row: Int, _ column: Int, _ element: Scalar) -> Void
 
+    var values: [Scalar] {
+        var buffer: [Scalar] = []
+        enumerate { _, _, element in
+            buffer.append(element)
+        }
+        return buffer
+    }
+
     init(rows: Int, columns: [Scalar]) {
         self.init((0 ..< rows).map { _ in columns })
     }
@@ -35,9 +43,7 @@ public extension Matrix {
 
     func map<T>(_ transform: (Scalar) -> T) -> Matrix<T> {
         var matrix = Matrix<T>(rows: rows, columns: columns, repeatedValue: 0)
-        enumerate { row, column, element in
-            matrix[row, column] = transform(element)
-        }
+        enumerate { matrix[$0, $1] = transform($2) }
         return matrix
     }
 
@@ -54,5 +60,28 @@ public extension Matrix where Scalar == Double {
     init(rows: Int, columns: Int, initializer: GeneInitializer) {
         let grid = (0 ..< rows * columns).map(initializer.value(at:))
         self.init(rows: rows, columns: columns, grid: grid)
+    }
+}
+
+extension Matrix: Codable where Scalar: Codable {
+    enum CodingKeys: String, CodingKey {
+        case values
+        case rows
+        case columns
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let values = try container.decode([Scalar].self, forKey: .values)
+        let rows = try container.decode(Int.self, forKey: .values)
+        let columns = try container.decode(Int.self, forKey: .values)
+        self.init(rows: rows, columns: columns, grid: values)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(rows, forKey: .rows)
+        try container.encode(columns, forKey: .columns)
+        try container.encode(values, forKey: .values)
     }
 }

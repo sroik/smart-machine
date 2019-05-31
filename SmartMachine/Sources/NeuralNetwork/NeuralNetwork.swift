@@ -5,7 +5,7 @@
 import Foundation
 import Surge
 
-public final class NeuralNetwork {
+public final class NeuralNetwork: Codable {
     public var layers: [Layer]
 
     public init(layers: [Layer] = []) {

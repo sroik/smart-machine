@@ -5,7 +5,7 @@
 import Foundation
 import Surge
 
-public struct Layer {
+public struct Layer: Codable, Equatable {
     public let size: Int
     public let activation: Activation
 
@@ -22,7 +22,7 @@ public struct Layer {
         weightInitializer: GeneInitializer,
         biasInitializer: GeneInitializer
     ) {
-        weights = Matrix(rows: size, columns: previous.size, initializer: weightInitializer)
+        weights = Matrix(rows: previous.size, columns: size, initializer: weightInitializer)
         biases = (0 ..< size).map(biasInitializer.value(at:))
     }
 

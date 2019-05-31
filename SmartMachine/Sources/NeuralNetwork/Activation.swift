@@ -5,7 +5,7 @@
 import Foundation
 import Surge
 
-public enum Activation {
+public enum Activation: String, Codable, Hashable {
     case none
     case relu
     case sigmoid
