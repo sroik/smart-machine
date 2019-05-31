@@ -23,11 +23,11 @@ public extension Vector {
     }
 
     static func + (lhs: Self, rhs: Self) -> Self {
-        return Self(raw: add(lhs.raw, y: rhs.raw))
+        return Self(raw: add(lhs.raw, rhs.raw))
     }
 
     static func * (lhs: Self, rhs: Double) -> Self {
-        return Self(raw: mul(lhs.raw, y: Array(repeating: rhs, count: lhs.dimension)))
+        return Self(raw: mul(lhs.raw, Array(repeating: rhs, count: lhs.dimension)))
     }
 
     static func / (lhs: Self, rhs: Double) -> Self {
@@ -52,7 +52,7 @@ public extension Vector {
     }
 
     func distance(to: Self) -> Double {
-        return sqrt(sum(pow(sub(raw, y: to.raw), 2)))
+        return sqrt(sum(pow(sub(raw, to.raw), 2)))
     }
 }
 

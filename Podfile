@@ -4,7 +4,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 def external
-    pod 'Surge', '~> 2.0.0'
+    pod 'Surge'
 end
 
 target 'SmartMachine' do
