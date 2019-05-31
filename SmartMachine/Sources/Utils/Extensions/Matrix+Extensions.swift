@@ -7,6 +7,10 @@ import Surge
 public extension Matrix {
     typealias EnumerationBlock = (_ row: Int, _ column: Int, _ element: Scalar) -> Void
 
+    init(rows: Int, columns: [Scalar]) {
+        self.init((0 ..< rows).map { _ in columns })
+    }
+
     init(rows: Int, columns: Int, grid: [Scalar]) {
         self.init(rows: rows, columns: columns, repeatedValue: 0)
 

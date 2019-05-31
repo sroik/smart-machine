@@ -91,6 +91,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC0C34D422A1A55300E75ED3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */,
+				ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AC2411F31FBD8E8700A356A5 = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +190,8 @@
 		AC66B0701FBD908600998B37 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AC0C34D422A1A55300E75ED3 /* Extensions */,
 				AC2B130C22A14C1000DEE495 /* Vector */,
-				AC66B0641FBD8F1500998B37 /* Collection+Extensions.swift */,
-				ACB7575922A1598C0011AA26 /* Matrix+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

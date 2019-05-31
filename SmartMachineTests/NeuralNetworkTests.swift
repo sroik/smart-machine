@@ -12,6 +12,23 @@ class NeuralNetworkTests: XCTestCase {
     }
 
     func testXORModel() {
+        let input = Matrix([
+            [0, 0],
+            [0, 1],
+            [1, 0],
+            [1, 1]
+        ])
+
+        let prediction = NeuralNetwork.xor().predict(input)
+        XCTAssert(prediction[0, 0] < 0)
+        XCTAssert(prediction[1, 0] > 0)
+        XCTAssert(prediction[2, 0] > 0)
+        XCTAssert(prediction[3, 0] < 0)
+    }
+}
+
+private extension NeuralNetwork {
+    static func xor() -> NeuralNetwork {
         let nn = NeuralNetwork()
         nn.add(layer: .input(size: 2))
         nn.add(layer: .fullyConnected(size: 2, activation: .tanh))
@@ -21,15 +38,6 @@ class NeuralNetworkTests: XCTestCase {
         nn.layers[1].biases = [-2, 5]
         nn.layers[2].weights = Matrix([[5], [5]])
         nn.layers[2].biases = [-5]
-
-        let zeroOne = nn.predict(Matrix([[0, 1]]))
-        let oneZero = nn.predict(Matrix([[1, 0]]))
-        let oneOne = nn.predict(Matrix([[0, 1]]))
-        let zeroZero = nn.predict(Matrix([[0, 0]]))
-
-        XCTAssert(zeroZero[0, 0] < 0)
-        XCTAssert(oneZero[0, 0] > 0)
-        XCTAssert(zeroOne[0, 0] > 0)
-        XCTAssert(oneOne[0, 0] > 0)
+        return nn
     }
 }

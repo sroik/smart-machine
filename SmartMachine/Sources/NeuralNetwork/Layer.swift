@@ -31,8 +31,9 @@ public struct Layer {
             return matrix
         }
 
-        let weighted = matrix * weights + Matrix([biases])
-        let activated = activation.forward(weighted)
+        let weighted = matrix * weights
+        let biased = weighted + Matrix(rows: matrix.rows, columns: biases)
+        let activated = activation.forward(biased)
         return activated
     }
 }
