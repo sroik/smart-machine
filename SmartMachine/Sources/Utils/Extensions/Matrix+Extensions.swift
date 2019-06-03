@@ -41,6 +41,12 @@ public extension Matrix {
         }
     }
 
+    func sum() -> Scalar {
+        return reduce(Scalar(0)) { result, next in
+            result + next.reduce(Scalar(0), +)
+        }
+    }
+
     func map<T>(_ transform: (Scalar) -> T) -> Matrix<T> {
         var matrix = Matrix<T>(rows: rows, columns: columns, repeatedValue: 0)
         enumerate { matrix[$0, $1] = transform($2) }
